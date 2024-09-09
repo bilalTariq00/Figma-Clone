@@ -16,8 +16,8 @@ const CursorChat = ({cursor,cursorState,setCursorState,updateMyPresence}:CursorC
     if(e.key==='Enter'){
      setCursorState({
       mode:CursorMode.Chat,
-      previousMessage: cursorState.message,
-      message:''
+      previousMessage: cursorState?.message,
+      message:'',
      })
     }else if(e.key==='Escape'){
       mode:CursorMode.Hidden

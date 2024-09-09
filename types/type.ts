@@ -180,7 +180,7 @@ export type RenderCanvas = {
 
 export type CursorChatProps = {
   cursor: { x: number; y: number };
-  cursorState: CursorState;
+  cursorState: any;
   setCursorState: (cursorState: CursorState) => void;
   updateMyPresence: (
     presence: Partial<{

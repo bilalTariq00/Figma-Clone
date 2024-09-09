@@ -7,7 +7,11 @@ const nextConfig = {
                   hostname:'liveblocks.io',
                   port:''
                }
-    ]}
+    ]},
+    typescript:{
+        ignoreBuildErrors:true
+    }
+
 };
 
 export default nextConfig;

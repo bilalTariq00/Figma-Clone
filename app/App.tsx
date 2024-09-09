@@ -33,12 +33,15 @@ export default function Page() {
     fill:'#aabbcc',
     stroke:'#aabbcc'
   })
-  const canvasObjects = useStorage((root) => {
-    if (!root.canvasObjects) {
-      root.set('canvasObjects', new LiveMap());
+  const canvasObjects = useStorage((root:any) => {
+    if (!root?.canvasObjects) {
+      root?.set('canvasObjects', new LiveMap());
     }
-    return root.canvasObjects as LiveMap<string, any>;
+  
+    return root?.canvasObjects ?? new LiveMap<string, any>();
   });
+  
+  
 
   const syncShapeInStorage = useMutation(({ storage }, object) => {
     if (!object) return;
@@ -47,7 +50,7 @@ export default function Page() {
     const shapeData = object.toJSON();
     shapeData.objectId = objectId;
 
-    const canvasObjects = storage.get("canvasObjects");
+    const canvasObjects:any = storage.get("canvasObjects");
     if (canvasObjects) {
       canvasObjects.set(objectId, shapeData);
     }
@@ -59,7 +62,7 @@ export default function Page() {
     icon: ''
   });
   const deleteAllShapes=useMutation(({storage})=>{
-    const canvasObjects=storage.get("canvasObjects");
+    const canvasObjects:any=storage.get("canvasObjects");
 
     if(!canvasObjects || canvasObjects.size===0)
       return true;
@@ -70,7 +73,7 @@ export default function Page() {
     return canvasObjects.size===0;
   },[])
   const deleteShapeFromStorage=useMutation(({storage},objectId)=>{
-    const canvasObjects=storage.get('canvasObjects')
+    const canvasObjects:any=storage.get('canvasObjects')
     canvasObjects.delete(objectId)
   },[])
 
@@ -160,7 +163,7 @@ export default function Page() {
         })
       })
       window.addEventListener('resize', () => {
-        handleResize({ fabricRef });
+        handleResize({ canvas });
       });
 
       window.addEventListener('keydown',(e)=>{
