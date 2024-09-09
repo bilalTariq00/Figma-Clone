@@ -4,7 +4,7 @@ import { LiveMap } from "@liveblocks/core";
 
 const client = createClient({
   throttle: 16,
-  publicApiKey: process.env.NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY!,
+  publicApiKey: 'pk_dev_LuNG-hH5gimShvw2MYdM8XK8X-gHfDq-ojMP4VHGxH_J50dsg9dxLuxVjjiwkpZi',
 });
 
 // Presence represents the properties that exist on every user in the Room
